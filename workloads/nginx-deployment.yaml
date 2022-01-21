@@ -8,7 +8,12 @@ spec:
   selector:
     matchLabels:
       app: nginx
-  replicas: 2
+  replicas: 3
+  strategy:
+    rollingupdate:
+      maxSurge: 2
+      maxUnavailable: 0
+    type: RollingUpdate
   template:
     metadata:
       labels:
